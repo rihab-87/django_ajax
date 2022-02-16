@@ -1,0 +1,118 @@
+{% extends 'base.html'%} {% load static %} {% block content %}
+
+<!-- NAVBAR -------------->
+<nav class="navbar sticky-top navbar-light bg-light">
+  <div class="container-fluid">
+    
+    <a href=""  class="navbar-brand ajou_formation_style" data-bs-toggle="modal" data-bs-target="#exampleModal"> <h4>  Formation en JavaScript</h4> </a>
+    <!-- <span class="navbar-brand mb-0 titre_style h4">Formations</span> -->
+  </div>
+</nav>
+
+<!--------->
+<div class="container container_style">
+  <!-- <h1 class="titre_style">FORMATION</h1> -->
+  <div class="container">
+     <div class="row" style="text-align: center;;">
+      <div id="alert_id" class="fixed-top" style="width:500px;height:50px;" >
+      </div>
+      </div>
+    
+    <div class="row formation_table">
+      <div id="bloc_table" style=" margin-bottom: 30px;">
+      <table class="table table-responsive  table-light table-hover tab-shadow  table-sm">
+        <thead class="table-secondary">
+          <tr>
+            <th class="titre_formatio_style">
+              <h2 class="titre_formation">{{formation.titre}}</h2>
+            </th>
+            <th class="edit_supp_style"> </th>
+          </tr>
+        </thead>
+        <tbody  id="tbody_formation"class="container_1">
+          {% for c in chapitre %}
+          <tr  id="row_chap{{c.id}}" class="draggable" draggable="true">
+            {% if c.formation_id == formation.id %}
+            <td class="titre_chap_style"> 
+              
+                <div id="edit_bloc{{c.id}}" class="add_bloc_hidden " >
+                  
+                  <form  id="form_{{c.id}}" method="POST"  style="display:flex;justify-content:center">
+                    {% csrf_token%}
+                   <input  placeholder="edit chapitre" id="chap{{c.id}}" class="form-control " />
+                    <input
+                    type="submit"
+                    class="btn button_style form-inline"
+                    value="save"
+                    /> 
+                  </form>
+                </div>
+             
+                <h5 id="nom_chap{{c.id}}">{{c.nom_chapitre}}</h5>
+            </td> 
+           
+            <td class="edit_supp_style">
+              <button  id="edit{{c.id}}" class="editbutton" ></button>
+              <button id="delete{{c.id}}" class="deletebutton"  data-bs-toggle="modal" data-bs-target="#delete_Modal{{c.id}}" > </button>
+            </td>
+            <div class="modal fade" id="delete_Modal{{c.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Supprimer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div style=" display:flex;justify-content: space-around; word-break:break-word">
+                    <h6> Etes-vous-sur de  supprimer  le chapitre <h5 id="modal_chap_sup{{c.id}}"> </h5> <h6>?</h6></h6> </div>
+                   <form id="delete_form{{c.id}}">
+                    {% csrf_token %}
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal"> Fermer</button>
+                      <button id="btn_sup{{c.id}}" type="submit" class="btn btn-danger">Oui</button>
+                    </div>
+                  </form>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+  
+            {% endif %}
+   
+          </tr>
+        {% endfor %}
+          <tr  class="draggable" draggable="true">
+            <td>
+              <button id="add{{formation.id}}"  class=" addbutton link_style"><div class="ajout_chap_style"> <img src="{% static 'plus (1).png' %}" style="width: 30px;margin-right:10px"/> <h5 >ajouter un nouveau chapitre</h5></div> </button>
+            </td>
+            <td>
+              <div id="add_bloc{{formation.id}}" class="add_bloc_hidden"  >
+                <form id="form_id"  method="POST" >
+                  <div style="display:flex;justify-content:flex-end ;width:400px">
+                     {% csrf_token %}
+                     {{formC.nom_chapitre}}  
+                    <input type="submit" id="submit_btn" class=" btn button_style" value="save"/> 
+                  </div>
+                </form>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+
+
+
+
+
+       
+      </div>
+    
+      
+    </div>
+
+  </div>
+</div>
+
+{% endblock content %}

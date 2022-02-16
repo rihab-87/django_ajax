@@ -1,0 +1,126 @@
+body{
+    margin: 0;
+    width:100%;
+}
+
+.titre_style {
+    border-color: black;
+    text-align: center;
+    margin-right: 150px !important;
+    color:#a332b5e8;
+}
+a h4{
+    color:#d617f3e8;
+}
+
+a h4:hover {
+    text-decoration: none;
+     color:#a332b5e8;
+     transform: scale(1.10); 
+   
+}
+.ajou_formation_style{
+    
+    margin-left: 150px;
+}
+.container_style{
+    margin-top: 80px;   
+}
+
+.formation_style{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.formation_table{
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    align-content: space-around;
+    justify-content: center;
+    /* width:60%; */
+    margin-left: 0!important;
+    margin-right: 0 !important;
+    margin-bottom: 50px !important;
+}
+.table{
+    width:70% !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+/* .titre_formatio_style{
+    text-align: start;
+} */
+.titre_chap_style{
+    text-align: start;
+    
+}
+.edit_supp_style{
+    text-align: end;
+}
+.draggable{
+    background-color: white;
+    padding:30px;
+    cursor: move;
+}
+.draggable.dragging{
+
+opacity: .5;
+
+}
+.tab-shadow{
+    border-radius: 10px 10px 10px 10px;
+    background-color: white;
+    box-shadow: 1px 1px 10px 1px;
+}
+.tab-shadow:hover{
+    transform: scale(1.10);
+} 
+.ajout_chap_style{
+display: flex;
+justify-content: flex-start;
+align-items: center;
+
+}
+.addbutton h5{
+    color:#2196f3;
+    margin-left: 10px;
+}
+a:link{
+text-decoration: none ;
+
+
+}
+.addbutton h5:hover {
+    text-decoration: none;
+    transform: scale(1.10);
+   
+}
+.button_style{
+    background-color:#9733a7e8 !important ;
+    color:white !important;
+}
+.titre_formation {
+    color:#9733a7e8;
+}
+.ajx_style{
+    background-color: red;
+}
+.add_bloc_hidden{
+    display:none;
+}
+.editbutton {
+    background-image: url( ./editing.png );
+    background-size: cover;
+    height: 30px;  
+    width: 30px;
+}
+.deletebutton{
+    background-image: url( ./delete.png );
+    background-size: cover;
+    height: 30px;  
+    width: 30px; 
+}
+.addbutton{
+    border: none;
+}
